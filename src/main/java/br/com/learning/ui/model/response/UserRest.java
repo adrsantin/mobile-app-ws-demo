@@ -1,4 +1,4 @@
-package br.com.adriano.ui.model.response;
+package br.com.learning.ui.model.response;
 
 public class UserRest {
 

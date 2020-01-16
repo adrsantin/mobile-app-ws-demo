@@ -1,9 +1,9 @@
-package br.com.adriano.ui.controller;
+package br.com.learning.ui.controller;
 
-import br.com.adriano.service.UserService;
-import br.com.adriano.ui.model.request.UpdateUserDetailsModelRequest;
-import br.com.adriano.ui.model.request.UserDetailsModelRequest;
-import br.com.adriano.ui.model.response.UserRest;
+import br.com.learning.service.UserService;
+import br.com.learning.ui.model.request.UpdateUserDetailsModelRequest;
+import br.com.learning.ui.model.request.UserDetailsModelRequest;
+import br.com.learning.ui.model.response.UserRest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -19,10 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
-import java.awt.*;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("users")

@@ -1,4 +1,4 @@
-package br.com.adriano.utils;
+package br.com.learning.utils;
 
 import org.springframework.stereotype.Service;
 

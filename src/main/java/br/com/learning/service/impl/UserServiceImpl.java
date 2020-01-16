@@ -1,9 +1,9 @@
-package br.com.adriano.service.impl;
+package br.com.learning.service.impl;
 
-import br.com.adriano.service.UserService;
-import br.com.adriano.ui.model.request.UserDetailsModelRequest;
-import br.com.adriano.ui.model.response.UserRest;
-import br.com.adriano.utils.Utils;
+import br.com.learning.service.UserService;
+import br.com.learning.ui.model.request.UserDetailsModelRequest;
+import br.com.learning.ui.model.response.UserRest;
+import br.com.learning.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

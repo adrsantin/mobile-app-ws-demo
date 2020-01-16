@@ -1,4 +1,4 @@
-package br.com.adriano.exceptions;
+package br.com.learning.exceptions;
 
 public class UserServiceException extends RuntimeException {
 

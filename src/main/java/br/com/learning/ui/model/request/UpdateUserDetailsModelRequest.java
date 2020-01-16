@@ -1,4 +1,4 @@
-package br.com.adriano.ui.model.request;
+package br.com.learning.ui.model.request;
 
 import javax.validation.constraints.NotNull;
 

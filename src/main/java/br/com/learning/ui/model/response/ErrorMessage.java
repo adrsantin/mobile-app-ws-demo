@@ -1,4 +1,4 @@
-package br.com.adriano.ui.model.response;
+package br.com.learning.ui.model.response;
 
 import java.util.Date;
 

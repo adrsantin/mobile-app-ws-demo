@@ -1,6 +1,6 @@
-package br.com.adriano.exceptions;
+package br.com.learning.exceptions;
 
-import br.com.adriano.ui.model.response.ErrorMessage;
+import br.com.learning.ui.model.response.ErrorMessage;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
