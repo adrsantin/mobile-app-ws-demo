@@ -74,20 +74,21 @@ public class UserController {
             produces = {
                 MediaType.APPLICATION_JSON_VALUE,
                 MediaType.APPLICATION_XML_VALUE})
-    public UserRest updateUser(@PathVariable String userId, @Valid @RequestBody UpdateUserDetailsModelRequest userDetails) {
+    public ResponseEntity<UserRest> updateUser(@PathVariable String userId, @Valid @RequestBody UpdateUserDetailsModelRequest userDetails) {
         if (users.containsKey(userId)) {
             UserRest returnValue = users.get(userId);
             returnValue.setFirstName(userDetails.getFirstName());
             returnValue.setLastName(userDetails.getLastName());
 
             users.put(userId, returnValue);
-            return returnValue;
+            return new ResponseEntity<UserRest>(returnValue, HttpStatus.OK);
         }
-
+        else return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @DeleteMapping
-    public String deleteUser() {
-        return "delete user was called";
+    @DeleteMapping(path="/{userId}")
+    public ResponseEntity<Void> deleteUser(@PathVariable String userId) {
+        users.remove(userId);
+        return ResponseEntity.noContent().build();
     }
 }
