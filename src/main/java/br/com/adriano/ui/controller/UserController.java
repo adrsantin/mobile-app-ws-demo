@@ -1,5 +1,6 @@
 package br.com.adriano.ui.controller;
 
+import br.com.adriano.ui.model.request.UpdateUserDetailsModelRequest;
 import br.com.adriano.ui.model.request.UserDetailsModelRequest;
 import br.com.adriano.ui.model.response.UserRest;
 import org.springframework.http.HttpStatus;
@@ -46,11 +47,11 @@ public class UserController {
 
     @PostMapping(
             consumes = {
-            MediaType.APPLICATION_JSON_VALUE,
-            MediaType.APPLICATION_XML_VALUE},
+                MediaType.APPLICATION_JSON_VALUE,
+                MediaType.APPLICATION_XML_VALUE},
             produces = {
-            MediaType.APPLICATION_JSON_VALUE,
-            MediaType.APPLICATION_XML_VALUE})
+                MediaType.APPLICATION_JSON_VALUE,
+                MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity<UserRest> createUser(@Valid @RequestBody UserDetailsModelRequest userDetails) {
         UserRest returnValue = new UserRest();
         returnValue.setFirstName(userDetails.getFirstName());
@@ -66,9 +67,23 @@ public class UserController {
         return new ResponseEntity<UserRest>(returnValue, HttpStatus.OK);
     }
 
-    @PutMapping
-    public String updateUser() {
-        return "update user was called";
+    @PutMapping(path="/{userId}",
+            consumes = {
+                MediaType.APPLICATION_JSON_VALUE,
+                MediaType.APPLICATION_XML_VALUE},
+            produces = {
+                MediaType.APPLICATION_JSON_VALUE,
+                MediaType.APPLICATION_XML_VALUE})
+    public UserRest updateUser(@PathVariable String userId, @Valid @RequestBody UpdateUserDetailsModelRequest userDetails) {
+        if (users.containsKey(userId)) {
+            UserRest returnValue = users.get(userId);
+            returnValue.setFirstName(userDetails.getFirstName());
+            returnValue.setLastName(userDetails.getLastName());
+
+            users.put(userId, returnValue);
+            return returnValue;
+        }
+
     }
 
     @DeleteMapping
